@@ -42,8 +42,8 @@ func TestGetMulti(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	var rvs []*Hoge
-	if err := ds.GetMulti(ctx, keys, &rvs); err != nil {
+	rvs := make([]*Hoge, len(keys))
+	if err := ds.GetMulti(ctx, keys, rvs); err != nil {
 		t.Fatal(err)
 	}
 }
